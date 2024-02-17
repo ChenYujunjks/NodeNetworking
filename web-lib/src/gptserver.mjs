@@ -1,6 +1,9 @@
 /*对于fs模块的使用，如果您想保持非阻塞的异步特性，
 可能会倾向于使用fs.promises接口，这样可以使用async/await语法来处理异步操作，
-使得代码更加简洁和易于理解。*/
+使得代码更加简洁和易于理解。
+这个示例使用了async/await语法来处理文件读取操作，这是ES6提供的一种更加优雅的处理异步操作的方式。
+这是因为在ES6模块中，__dirname和__filename这两个在CommonJS模块系统中常用的变量不再直接可用。*/
+
 import net from 'net';
 import { promises as fs } from 'fs';
 import path from 'path';
