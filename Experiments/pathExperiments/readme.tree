@@ -1,0 +1,4 @@
+pathExperiments/
+├── pathBasics.mjs          - Demonstrates the basic usage of the path module.
+├── pathParseFormat.mjs     - Shows how to parse and format paths.
+└── pathRelative.mjs        - Explains finding relative paths.
