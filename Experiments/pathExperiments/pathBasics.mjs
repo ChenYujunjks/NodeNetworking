@@ -13,7 +13,7 @@ console.log('当前文件的完整路径:', __filename);
 console.log('当前文件所在的目录路径:', __dirname);
 
 // 使用path.join连接路径片段
-console.log('使用path.join连接的路径:', path.join('/experiments', 'test', 'demo.txt'));
+console.log('使用path.join连接的路径:', path.join('/experiments', 'test', 'readme.tree'));
 
 // 使用path.resolve解析为绝对路径
 // 注意：这里解析的路径依赖于运行node命令时的当前工作目录
