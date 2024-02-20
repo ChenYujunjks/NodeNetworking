@@ -8,6 +8,14 @@ NodeNetworkingProject/
 │   ├── readFile.mjs                 # 读取文件
 │   └── writeFile.mjs                # 写入文件
 │
-└── urlExperiments/                  # 学习 url 模块
-    ├── parseUrl.mjs                 # 解析 URL
-    └── constructUrl.mjs             # 构造 URL
+├── urlExperiments/                  # 学习 url 模块
+│   ├── parseUrl.mjs                 # 解析 URL
+│   └── constructUrl.mjs               # 构造 URL
+│           
+├── pathExperiments/                   # 学习 fs 模块
+│   ├── pathBasics.mjs                 # 读取文件
+│   └── pathParse.mjs                # 写入文件
+│
+└── chain&import Experiments/                  # 
+    ├── chain.mjs                 # 解析 URL
+    └── import.mjs  
