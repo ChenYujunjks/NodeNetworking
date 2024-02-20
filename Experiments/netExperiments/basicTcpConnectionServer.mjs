@@ -16,7 +16,7 @@ server.on('connection', clientsocket => {
     clientsocket.on('close', () => {
         console.log('连接已关闭');
     });
-    //clientsocket.end();
+    //clientsocket.end('Server closing connection.\r\n');
 });
 
 server.listen(12345, () => {
