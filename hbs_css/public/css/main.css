@@ -1,0 +1,79 @@
+/* public/css/main.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+  }
+
+form {
+  margin-top: 30px; /* 或者更多，根据需要调整 */
+}
+
+
+textarea {
+    width: 50%; /* 占父元素宽度的50% */
+    height: 366px;
+    font-size: 1.2em; /* 增大字体大小 */
+    padding: 10px; /* 设置内边距 */
+    margin: 0 0 0 0; /* 根据需要设置外边距，这里假设不需要 */
+    border: 1px solid #ccc; /* 设置边框 */
+    border-radius: 4px; /* 圆角边框 */
+    box-sizing: border-box; /* 盒模型，包含padding和border */
+    display: block; /* 确保元素独占一行 */
+    /* 其他样式按需添加 */
+}
+  
+textarea:focus {
+    border-color: #007bff; /* 聚焦时边框颜色 */
+    outline: none; /* 移除外轮廓 */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+/* public/css/main.css */
+.logo {
+  width: 100px; /* set constant width */
+  height: auto; /*a uto */
+}
+
+  /* public/css/main.css */
+.navigation {
+  display: flex;
+  justify-content: flex-end; /* 将内容对齐到右边 */
+  gap: 20px; /* 设置链接之间的间隙 */
+}
+/* public/css/main.css */
+a {
+  color: #007bff; /* 链接颜色 */
+  text-decoration: none; /* 移除下划线 */
+  font-weight: bold; /* 加粗字体 */
+  padding: 8px 16px; /* 添加内边距 */
+  border-radius: 4px; /* 圆角边框 */
+  transition: background-color 0.3s; /* 平滑背景色过渡 */
+}
+
+a:hover {
+  background-color: #e0e0e0; /* 鼠标悬停时的背景色 */
+}
+
+input[type="submit"], button[type="submit"] {
+  background-color: #007bff; /* 背景颜色 */
+  color: white; /* 文字颜色 */
+  padding: 12px 20px; /* 内边距 */
+  border: none; /* 无边框 */
+  border-radius: 4px; /* 圆角边框 */
+  cursor: pointer; /* 鼠标手型图标 */
+  font-size: 16px; /* 字体大小 */
+}
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+  background-color: #0056b3; /* 鼠标悬停时的背景色 */
+}

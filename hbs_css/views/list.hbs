@@ -1,0 +1,7 @@
+<ul>
+  {{#each kaomojis}}
+    <li>
+      {{this.value}} - {{#each this.emotions}} {{this}} {{/each}}
+    </li>
+  {{/each}}
+</ul>
