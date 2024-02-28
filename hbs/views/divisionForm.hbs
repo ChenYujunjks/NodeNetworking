@@ -1,14 +1,18 @@
+<!-- divisionForm.hbs -->
 <section>
-    <h2>divide calculator</h2>
+    {{#if result}}
+    <p>Result: {{result}}</p>
+    {{/if}}
+    <h2>Divide Calculator</h2>
     <form action="/divide" method="POST">
         <div>
-            <label for="numerator">分子：</label>
+            <label for="numerator">Numerator:</label>
             <input type="number" id="numerator" name="numerator" required>
         </div>
         <div>
-            <label for="denominator">分母：</label>
+            <label for="denominator">Denominator:</label>
             <input type="number" id="denominator" name="denominator" required>
         </div>
-        <button type="submit">submit</button>
+        <button type="submit">Submit</button>
     </form>
 </section>
