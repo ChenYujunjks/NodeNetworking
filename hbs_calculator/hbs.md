@@ -57,3 +57,29 @@ app.get('/', function(req, res, next) {
 在这个例子中，第一个回调函数执行了一些操作（例如打印消息到控制台），然后调用`next()`将控制权传递给下一个中间件，即路由的最终处理函数，它发送响应给客户端。
 
 这样，即使是简单的`app.get('/', {...})`路由定义，其回调函数也遵循中间件的工作方式，展示了Express中中间件概念的灵活性和强大功能。
+
+---
+### res req API
+当使用`GET`请求提交表单时，表单数据会附加到URL中作为查询字符串，而不是放在请求体（`req.body`）中。因此，对于`GET`请求，你不会在`req.body`中找到数据。相反，你需要使用`req.query`来访问URL查询字符串中的数据。
+
+### `req`（请求）对象包含的主要属性和方法：
+
+- **`req.params`**: 一个对象，包含路由参数（URL的一部分，通常用于标识资源）。
+- **`req.query`**: 一个对象，包含URL查询字符串的参数。
+- **`req.body`**: 一个对象，包含POST或PUT请求的正文数据。对于`GET`请求，这个对象通常是空的，因为`GET`请求的数据通过URL的查询字符串发送。
+- **`req.headers`**: 一个对象，包含请求的头信息（如`Content-Type`，`Authorization`等）。
+- **`req.url`**或**`req.originalUrl`**: 请求的URL字符串。
+- **`req.method`**: HTTP请求方法（如`GET`，`POST`等）。
+- **`req.cookies`**: 一个对象，包含请求发送的cookies（如果使用了cookie解析中间件）。
+
+### `res`（响应）对象包含的主要属性和方法：
+
+- **`res.send(body)`**: 发送HTTP响应。`body`可以是一个Buffer对象、一个字符串、一个对象或一个数组。
+- **`res.json(json)`**: 发送一个JSON响应。这个方法和`res.send()`类似，但会自动将对象转换成JSON字符串，并设置正确的`Content-Type`头。
+- **`res.status(code)`**: 设置HTTP状态码。通常与`send`或`json`等方法链式调用。
+- **`res.render(view, [locals], callback)`**: 使用视图引擎渲染视图，并发送渲染后的HTML字符串作为响应。`view`是视图文件的名称，`locals`是传递给视图的数据。
+- **`res.redirect([status,] path)`**: 重定向到指定的URL。状态码是可选的，默认为`302 Found`。
+- **`res.setHeader(name, value)`**: 设置响应头。
+- **`res.cookie(name, value, [options])`**: 设置一个cookie。`options`是一个对象，可以用来指定cookie的属性，如`expires`、`path`等。
+
+每个`req`和`res`对象都提供了丰富的API，以便开发者可以灵活地处理HTTP请求和响应。在处理请求时，你通常会根据请求类型（`GET`、`POST`等）和发送的数据（通过`req.params`、`req.query`或`req.body`访问）来决定响应的行为。

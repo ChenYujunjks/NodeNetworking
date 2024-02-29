@@ -11,11 +11,11 @@ app.use(express.urlencoded({ extended: true}))
 // use a router to bind a callback, a request handler
 // to a particular url
 app.use(function(req, res, next) {
-	console.log(req.method, req.path);
+	console.log('req =>',req.method, req.path);
 	next();
 });
 app.use(function(req, res, next) {
-	console.log('hello---------------');
+	console.log('Another Request------->>>> (sent by middleware');
 	next();
 });
 app.use(function(req, res, next) {
@@ -26,27 +26,27 @@ app.get('/', function(req, res){
 	// sends back a response; that is all
 	res.send('hello');
 });
-app.get('/faq', function(req, res) {
-	res.send('you has q, i has answer');
-});
 app.get('/divide', (req, res) => {
-   res.render('divisionForm');
-})
-app.post('/divide', (req, res) => {
-   if (!req.body){
-      res.render('divisionForm');
-      return
+   //console.log(req.body)
+   if (Object.keys(req.query).length === 0){
+      console.log("NOTHING");
+      res.render('divisionGet');
+      return;
    }
    //console.log(req.body, 'req:', req)
-   const { numerator, denominator } = req.body;
+   const { numerator, denominator} = req.query
+
    if (denominator === '0') {
       //Handle divisionForm by zero error, optionally
       res.render('divisionForm', {error: 'Cannot divide by zero.'});
       return;
+   }else if (numerator === undefined || denominator ===undefined){
+      res.render('divisionGet', {error: 'Both numerator and denominator are required.'});
+      return;
    }
    const result = numerator / denominator;
-   //res.send('youma ')
-   res.render('divisionForm', {result: `${numerator} / ${denominator} = ${result}`});
+   res.render('divisionGet', {result: `${numerator} / ${denominator} = ${result}`});
+   return;
 });
 
 app.listen(port, () => {

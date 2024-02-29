@@ -1,0 +1,12 @@
+<!-- divisionForm.hbs -->
+<section>
+    {{#if result}}
+    <p>Result: {{result}}</p>
+    {{/if}}
+    <h2>Divide Calculator</h2>
+    <form action="/divide" >
+        <input type="text" name="numerator">
+        <input type="text" name="denominator">
+        <button type="submit">Add</button>
+    </form>
+</section>
