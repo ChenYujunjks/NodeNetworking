@@ -1,3 +1,4 @@
+## HBS
 1. 只需要
 ```javascript
 // 设置Handlebars为视图引擎
@@ -7,7 +8,8 @@ app.set('view engine', 'hbs')
 
 3. 默认layouts 是  views 里面 有一个layout.hbs
 
-### middileware
+## middileware
+
 是的，几乎在所有情况下，当你的Express应用需要处理`POST`请求中的数据时，你都需要使用中间件来解析请求体。这是因为`POST`请求通常用来向服务器发送数据，这些数据被包含在请求体中。不同于`GET`请求，其中的数据是附加在URL上的，`POST`请求的数据是不可见的，因此需要特定的解析器来处理。
 
 Express框架本身不会自动解析请求体中的数据，这意味着在没有适当的中间件处理之前，`req.body`将会是`undefined`。为了让这些数据在Express路由处理器中可用，必须使用如下中间件之一（或两者都用，取决于需要）：
@@ -19,7 +21,7 @@ Express框架本身不会自动解析请求体中的数据，这意味着在没�
 
 总结来说，只要你需要在Express应用中处理`POST`请求体中的数据，就必须使用中间件来解析请求体。
 
-## middleware 特征
+### middleware 特征
 是的，`app.get('/', {...})`中的回调函数实际上可以被视为一种特殊的中间件。在Express中，当你定义路由处理函数时，如：
 
 ```javascript
@@ -59,8 +61,8 @@ app.get('/', function(req, res, next) {
 这样，即使是简单的`app.get('/', {...})`路由定义，其回调函数也遵循中间件的工作方式，展示了Express中中间件概念的灵活性和强大功能。
 
 ---
-### res req API
-当使用`GET`请求提交表单时，表单数据会附加到URL中作为查询字符串，而不是放在请求体（`req.body`）中。因此，对于`GET`请求，你不会在`req.body`中找到数据。相反，你需要使用`req.query`来访问URL查询字符串中的数据。
+## res req: API
+当使用`GET`请求提交表单时，表单数据会附加到URL中作为查询字符串，而不是放在请求体（`req.body`）中。因此，对于`GET`请求，你不会在`req.body`中找到数据。你需要使用`req.query`来访问URL查询字符串中的数据。
 
 ### `req`（请求）对象包含的主要属性和方法：
 

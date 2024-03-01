@@ -1,15 +1,20 @@
 import express from 'express';
 import hbs from 'hbs';
+import path from 'path'
+import { fileURLToPath } from 'url';
 
 const app = express();
 const port = 3000;
 
+const __filename= fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 // 设置Handlebars为视图引擎
 app.set('view engine', 'hbs')
 // middleware
 app.use(express.urlencoded({ extended: true}))
-// use a router to bind a callback, a request handler
-// to a particular url
+//静态文件目录
+app.use(express.static(path.join(__dirname, 'public')));
+// 日志中间件
 app.use(function(req, res, next) {
 	console.log('req =>',req.method, req.path);
 	next();
@@ -18,10 +23,12 @@ app.use(function(req, res, next) {
 	console.log('Another Request------->>>> (sent by middleware');
 	next();
 });
+//服务器标头
 app.use(function(req, res, next) {
 	res.set('Server', 'MY AMAZING SUPER COOL SERVER');
 	next();
 });
+
 app.get('/', function(req, res){
 	// sends back a response; that is all
 	res.send('hello');
