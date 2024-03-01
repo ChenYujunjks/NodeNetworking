@@ -6,7 +6,9 @@ const port = 3000;
 
 // 设置Handlebars为视图引擎
 app.set('view engine', 'hbs')
-// middleware
+
+// middleware only handle urlencoded data...
+// extended: false specifies that incoming values will be treated as strings or arrays
 app.use(express.urlencoded({ extended: true}))
 // use a router to bind a callback, a request handler to a particular url
 app.use(function(req, res, next) {
@@ -26,9 +28,7 @@ app.get('/', function(req, res){
 	// sends back a response; that is all
 	res.send('hello');
 });
-app.get('/faq', function(req, res) {
-    res.render('learn', {'item':'pizza', 'description':'tasty (it\'s a hbs templalting objects)'});
-});
+
 app.get('/templating-arrays', function(req, res) {
 	res.render('templating-arrays', {'luckyNumbers':[42, 7, 78, 3, 5]});
 });
