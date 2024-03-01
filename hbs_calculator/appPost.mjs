@@ -27,11 +27,11 @@ app.get('/', function(req, res){
 	res.send('hello');
 });
 app.get('/faq', function(req, res) {
-	res.send('you has q, i has answer');
+    res.render('learn', {'item':'pizza', 'description':'tasty (it\'s a hbs templalting objects)'});
 });
 app.get('/divide', (req,res)=>{
     res.render('divisionGet');
-})
+});
 
 app.post('/divide', (req, res) => {
     if (!req.body) {
