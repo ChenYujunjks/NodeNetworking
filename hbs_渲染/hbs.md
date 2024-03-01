@@ -107,3 +107,111 @@ app.get('/', function(req, res, next) {
    - Handlebars支持一些基本的逻辑和结构处理能力，如循环和条件判断，使得在模板中处理数组或对象等数据结构变得更加灵活和强大。
 
 通过这段文本，可以了解到使用模板引擎的好处，以及如何通过Handlebars快速开始模板渲染，进而提升Web开发的效率和安全性。
+
+这段文字讲述了在使用Handlebars模板引擎时如何在模板中嵌入变量以及如何处理更复杂的逻辑结构，比如循环和条件语句。Handlebars是一个流行的JavaScript模板引擎，它允许开发者将JSON数据绑定到HTML模板上。这里提到的几个关键点包括：
+
+1. **嵌入变量：** 使用双大括号`{{}}`（没有空格）可以将上下文（context）中的值插入到模板中。这是Handlebars中最基本的数据绑定形式，用于输出变量的值。
+
+2. **循环：** Handlebars提供了`{{#each}}`这样的辅助方法来遍历数组或对象，允许在模板中循环输出元素。这对于动态生成列表或表格等结构特别有用。
+
+3. **条件语句：** 通过使用`{{#if}}`、`{{else}}`、`{{#unless}}`等构造，Handlebars允许在模板中执行基本的条件判断。这使得根据数据的不同条件来显示不同的HTML内容成为可能。
+
+4. **其他结构：** 除了循环和条件语句，Handlebars还支持更多的逻辑结构，比如子模板（partials）、自定义辅助方法（helpers）等，这些都是为了提高模板的复用性和灵活性。
+
+总之，这段文字强调了Handlebars模板引擎不仅仅支持简单的数据绑定，还提供了构建动态内容所需的基本控制结构，如循环和条件判断，这些功能让Handlebars成为一个功能强大且灵活的前端模板解决方案。
+当然，我可以提供一些Handlebars模板的基本示例，包括如何嵌入变量、使用循环和条件语句。
+
+### 嵌入变量
+
+假设你有一个变量`name`，你想在模板中显示它的值：
+
+```html
+<p>Hello, {{name}}!</p>
+```
+
+如果上下文中`name`的值为"Alex"，渲染后的HTML将会是：
+
+```html
+<p>Hello, Alex!</p>
+```
+
+### 使用循环
+
+如果你有一个数组`people`，并希望列出所有人的名字：
+
+```html
+<ul>
+  {{#each people}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+```
+
+如果上下文中`people`的值为`["Alice", "Bob", "Charlie"]`，渲染后的HTML将会是：
+
+```html
+<ul>
+  <li>Alice</li>
+  <li>Bob</li>
+  <li>Charlie</li>
+</ul>
+```
+
+### 条件语句
+
+如果你有一个布尔值`isLoggedIn`，并且想根据用户是否登录显示不同的消息：
+
+```html
+{{#if isLoggedIn}}
+  <p>Welcome back!</p>
+{{else}}
+  <p>Please log in.</p>
+{{/if}}
+```
+
+如果上下文中`isLoggedIn`为`true`，渲染后的HTML将会是：
+
+```html
+<p>Welcome back!</p>
+```
+
+如果`isLoggedIn`为`false`，则渲染：
+
+```html
+<p>Please log in.</p>
+```
+
+### 综合示例
+
+假设你有一个更复杂的数据结构，比如一个包含用户信息的对象，你想根据用户的不同状态显示不同的信息：
+
+```html
+{{#each users}}
+  <p>Name: {{name}}, Age: {{age}}</p>
+  {{#if isActive}}
+    <p>Status: Active</p>
+  {{else}}
+    <p>Status: Inactive</p>
+  {{/if}}
+{{/each}}
+```
+
+如果上下文中`users`的值如下：
+
+```json
+[
+  {"name": "Alice", "age": 30, "isActive": true},
+  {"name": "Bob", "age": 25, "isActive": false}
+]
+```
+
+渲染后的HTML将会是：
+
+```html
+<p>Name: Alice, Age: 30</p>
+<p>Status: Active</p>
+<p>Name: Bob, Age: 25</p>
+<p>Status: Inactive</p>
+```
+
+这些示例展示了Handlebars的基本用法，包括如何在模板中插入变量、循环遍历数组以及基于条件渲染不同的HTML段落。通过这些功能，你可以创建动态和响应用户数据的Web页面。
