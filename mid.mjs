@@ -1,5 +1,3 @@
-
-// 定义 oldFn 函数，计算数组的总和
 function oldFn(list) {
     return list.reduce((acc, current) => acc + current, 0);
   }
