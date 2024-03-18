@@ -1,0 +1,34 @@
+<!-- movies.hbs -->
+<h2>Let's Watch Some Movies!</h2>
+<form action="/movies" method="GET">
+    <label for="director">Filter by Director:</label>
+    <input type="text" id="director" name="director">
+    <button type="submit">Search</button>
+</form>
+
+{{#if directorFilter}}
+<p style="font-weight: bold; font-size: 24px; background-color: #f9d835; padding: 10px; border-radius: 5px;">
+    Showing movies directed by: {{directorFilter}}
+</p>
+{{/if}}
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each movies}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.director}}</td>
+            <td>{{this.year}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<a href="/movies/add">Add a new movie</a>
